@@ -26,11 +26,3 @@
 %w{ curl ca-certificates }.each do |pkg|
   package pkg
 end
-
-bash "Updating cacerts" do
-    user "root"
-    group "root"
-    code <<-EOH
-    curl http://curl.haxx.se/ca/cacert.pem -o /etc/ssl/certs/ca-certificates.crt
-    EOH
-end
